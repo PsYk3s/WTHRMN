@@ -1,19 +1,113 @@
+@font-face {
+    font-family: upbolters;
+    src: url(./upbolters.otf);
+}
+
 body {
-    background: #010E1C;
-    color: #ffffff;
+    color: #80AFD1;
     margin: 0;
     display: inline-grid;
     gap: 15px;
-    width: calc(100vw - 40px);
-    padding: 34px 20px;
+    width: calc(100vw - 78px);
+    padding: 34px 30px;
+    font-family: upbolters;
+    background: url(./WTHRMN-gradient.png) no-repeat #010E1C;
+    background-position: 16px -47px;
+    font-size: 1.3em;
+}
+
+.current-value {
+    font-size: 1.5em;
 }
 
 #head-container {
     grid-area: head-container;
     display: inline-grid;
-    grid-template-columns: 300px 200px 160px 1fr 210px;
+    grid-template-columns: 300px 2fr 1fr;
     gap: 15px;
     align-items: center;
+    font-size: 20px;
+}
+
+#location-block, 
+#warnings {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#warnings {
+    justify-content: flex-end;
+}
+
+#current-low-temp, 
+#current-high-temp, 
+#current-wind-speed, 
+#current-rain {
+    font-size: 4rem;
+}
+
+span, 
+#current-low-temp, 
+#current-high-temp, 
+#current-conditions, 
+#current-wind-speed, 
+#current-rain, 
+.active {
+    color: #BBE5FF;
+}
+
+#speed, 
+#amount, 
+.inactive {
+    color: #324C5B;
+}
+
+a {
+    text-decoration: none;
+}
+
+#current-anchors {
+    grid-area: current-anchors;
+    display: inline-flex;
+    gap: 25px;
+}
+
+#current-conditions {
+    grid-area: current-conditions;
+}
+
+#current-low {
+    grid-area: current-low;
+}
+
+#current-high {
+    grid-area: current-high;
+}
+
+#current-wind {
+    grid-area: current-wind;
+}
+
+#current-rain-container {
+    grid-area: current-rain-container;
+}
+
+#current-sunrise, 
+#current-sunset, 
+#current-moonphase {
+    display: inline-grid;
+}
+
+#current-sun-moon {
+    grid-area: current-sun-moon;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+span#direction {
+    font-size: 22px;
 }
 
 #current-container {
@@ -34,8 +128,33 @@ body {
 
 #footer-container {
     grid-area: footer-container;
+    color: #324C5B;
+    text-align: end;
 }
 
+button {
+    border-radius: 17px;
+    padding: 6px;
+    background: none;
+    color: #507D93;
+    border: 2px solid #324C5B;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button#change-location-btn {
+    padding: 6px 10px;
+}
+
+button:hover {
+    border: 2px solid #5a798b;
+}
+
+#degrees-celsius-btn, 
+#fahrenheit-btn {
+    width: 32px;
+}
 
 #time {
     text-align: end;
@@ -44,17 +163,65 @@ body {
 .container-block {
     background: #010E1C;
     border: 2px solid #324454;
-    padding: 20px;
+    padding: 6%;
     box-shadow: 6px 6px 7px #00000061;
+}
+
+#current-container {
+    display: inline-grid;
+    gap: 25px;
+    grid-template-columns: 120px 190px 2fr;
 }
 
 /*------------------------------------Full Screen-----------------------------------*/
 
 body {
-    grid-template-areas: "head-container head-container" "current-container five-day-container" "hourly-container hourly-container" "fifteen-day-container fifteen-day-container" "footer-container footer-container";
+    grid-template-areas: 
+        "head-container head-container" 
+        "current-container five-day-container" 
+        "hourly-container hourly-container" 
+        "fifteen-day-container fifteen-day-container" 
+        "footer-container footer-container";
+    grid-template-columns: 1fr 1fr;
+}
+
+#current-container {
+    grid-template-areas:
+        "current-anchors current-anchors current-conditions"
+        "current-low current-wind current-sun-moon"
+        "current-high current-rain-container current-sun-moon";
 }
 
 /*--------------------------------------Tablet--------------------------------------*/
 
+@media only screen and (max-width: 1030px) {
+    body {
+        grid-template-areas: 
+            "head-container" 
+            "current-container"
+            "five-day-container" 
+            "hourly-container" 
+            "fifteen-day-container" 
+            "footer-container";
+        grid-template-columns: 1fr;
+    }
+
+    #head-container {
+        grid-template-columns: initial;
+        justify-items: center;
+    }
+}
 
 /*--------------------------------------Mobile--------------------------------------*/
+
+@media only screen and (max-width: 600px) {
+    #current-container {
+        grid-template-areas:
+            "current-anchors current-anchors"
+            "current-conditions current-conditions"
+            "current-low current-wind"
+            "current-high current-rain-container"
+            "current-sun-moon current-sun-moon";
+        grid-template-columns: 1fr 1fr;
+    }
+}

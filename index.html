@@ -16,22 +16,52 @@
         </div>
         <div id="location-block">
             Location: <span id="city-name">City Name</span>
-        </div>
-        <div id="buttons-block">
-            <button type="button" id="change-location-btn">+ Change</button>
-            <button type="button" id="degrees-celsius-btn">°C</button>
-            <button type="button" id="fahrenheit-btn">F</button>
-        </div>
-        <div id="time">
-            <span id="time">10:45</span>
+            <div id="buttons-block">
+                <button type="button" id="change-location-btn">+ Change</button>
+                <button type="button" id="degrees-celsius-btn">°C</button>
+                <button type="button" id="fahrenheit-btn">F</button>
+            </div>
         </div>
         <div id="warnings">
+            <div id="time">
+                <span id="time">10:45</span>
+            </div>
             Warnings: <span id="warnings">None</span>
         </div>
 
     </div>
     <div id="current-container" class="container-block half-block">
-
+        <div id="current-anchors"><a href="#" onclick="" class="active">Today</a> <a href="#" onclick="" class="inactive">Tomorrow</a></div>
+        <div id="current-conditions" class="current-condition-overcast">Overcast</div>
+        <div id="current-low">
+            <div id="current-low-heading">Low</div>
+            <div id="current-low-temp">15</div>
+        </div>
+        <div id="current-wind">
+            <div id="current-wind-heading">Wind <span id="speed">kph</span></div>
+            <div id="current-wind-speed">4.6<span id="direction">wsw</span></div>
+        </div>
+        <div id="current-high">
+            <div id="current-high-heading">High</div>
+            <div id="current-high-temp">27</div>
+        </div>
+        <div id="current-rain-container">
+            <div id="current-rain-heading">Rain <span id="amount">mm</span></div>
+            <div id="current-rain">0</div>
+        </div>
+        <div id="current-sun-moon">
+            <div id="current-sunrise">
+                Sunrise
+                <span class="current-value">06:29:09</span>
+            </div>
+            <div id="current-sunset">
+                Sunset
+                <span class="current-value">17:52:02</span>
+            </div>
+            <div id="current-moonphase">
+                Moonphase
+                <span class="current-value">Waning Gibbous</span></div>
+        </div>
     </div>
     <div id="five-day-container" class="container-block half-block">
 
