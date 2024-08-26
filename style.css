@@ -1,0 +1,60 @@
+body {
+    background: #010E1C;
+    color: #ffffff;
+    margin: 0;
+    display: inline-grid;
+    gap: 15px;
+    width: calc(100vw - 40px);
+    padding: 34px 20px;
+}
+
+#head-container {
+    grid-area: head-container;
+    display: inline-grid;
+    grid-template-columns: 300px 200px 160px 1fr 210px;
+    gap: 15px;
+    align-items: center;
+}
+
+#current-container {
+    grid-area: current-container;
+}
+
+#five-day-container {
+    grid-area: five-day-container;
+}
+
+#hourly-container {
+    grid-area: hourly-container;
+}
+
+#fifteen-day-container {
+    grid-area: fifteen-day-container;
+}
+
+#footer-container {
+    grid-area: footer-container;
+}
+
+
+#time {
+    text-align: end;
+}
+
+.container-block {
+    background: #010E1C;
+    border: 2px solid #324454;
+    padding: 20px;
+    box-shadow: 6px 6px 7px #00000061;
+}
+
+/*------------------------------------Full Screen-----------------------------------*/
+
+body {
+    grid-template-areas: "head-container head-container" "current-container five-day-container" "hourly-container hourly-container" "fifteen-day-container fifteen-day-container" "footer-container footer-container";
+}
+
+/*--------------------------------------Tablet--------------------------------------*/
+
+
+/*--------------------------------------Mobile--------------------------------------*/
