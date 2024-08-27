@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="./style.css">
     <script src="./index.js" defer></script>
@@ -7,71 +8,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WTHRMN Weather Service</title>
 </head>
-<body> 
 
-    <div id="head-container">
+<body>
+    <div id="app-container">
+        <div id="head-container">
 
-        <div id="logo-block">
-            <img width="300px" height="auto" src="./WTHRMN.svg" />
+            <div id="logo-block">
+                <img width="300px" height="auto" src="./WTHRMN.svg" />
+            </div>
+            <div id="location-block">
+                Location: <span id="city-name">City Name</span>
+                <div id="buttons-block">
+                    <button type="button" id="change-location-btn">+ Change</button>
+                    <button type="button" onclick="selectCelsius()" id="degrees-celsius-btn" class="active-btn">°C</button>
+                    <button type="button" onclick="selectFahren()" id="fahrenheit-btn" class="">F</button>
+                </div>
+            </div>
+            <div id="warnings-container">
+                <div id="time">
+                    <span id="time">10:45</span>
+                </div>
+                Warnings: <span id="warnings">None</span>
+            </div>
+
         </div>
-        <div id="location-block">
-            Location: <span id="city-name">City Name</span>
-            <div id="buttons-block">
-                <button type="button" id="change-location-btn">+ Change</button>
-                <button type="button" id="degrees-celsius-btn">°C</button>
-                <button type="button" id="fahrenheit-btn">F</button>
+        <div id="current-container" class="container-block half-block">
+            <div id="current-anchors"><a href="#" onclick="selectToday()" id="todayAnc" class="active">Today</a> <a href="#" onclick="selectTomorrow()" id="tomorrowAnc"
+                    class="inactive">Tomorrow</a></div>
+            <div id="current-conditions" class="current-condition-overcast">Overcast</div>
+            <div id="current-low">
+                <div id="current-low-heading">Low</div>
+                <div id="current-low-temp">15</div>
+            </div>
+            <div id="current-wind">
+                <div id="current-wind-heading">Wind <span id="speed">kph</span></div>
+                <div id="current-wind-speed">4.6<span id="direction">wsw</span></div>
+            </div>
+            <div id="current-high">
+                <div id="current-high-heading">High</div>
+                <div id="current-high-temp">27</div>
+            </div>
+            <div id="current-rain-container">
+                <div id="current-rain-heading">Rain <span id="amount">mm</span></div>
+                <div id="current-rain">0</div>
+            </div>
+            <div id="current-sun-moon">
+                <div id="current-sunrise">
+                    Sunrise
+                    <span class="current-value" id="current-sunrise-time">06:29:09</span>
+                </div>
+                <div id="current-sunset">
+                    Sunset
+                    <span class="current-value" id="current-sunset-time">17:52:02</span>
+                </div>
+                <div id="current-moonphase">
+                    Moonphase
+                    <span class="current-value" id="current-moonphase-state">Waning Gibbous</span>
+                </div>
             </div>
         </div>
-        <div id="warnings">
-            <div id="time">
-                <span id="time">10:45</span>
-            </div>
-            Warnings: <span id="warnings">None</span>
-        </div>
+        <div id="five-day-container" class="container-block half-block">
 
-    </div>
-    <div id="current-container" class="container-block half-block">
-        <div id="current-anchors"><a href="#" onclick="" class="active">Today</a> <a href="#" onclick="" class="inactive">Tomorrow</a></div>
-        <div id="current-conditions" class="current-condition-overcast">Overcast</div>
-        <div id="current-low">
-            <div id="current-low-heading">Low</div>
-            <div id="current-low-temp">15</div>
         </div>
-        <div id="current-wind">
-            <div id="current-wind-heading">Wind <span id="speed">kph</span></div>
-            <div id="current-wind-speed">4.6<span id="direction">wsw</span></div>
-        </div>
-        <div id="current-high">
-            <div id="current-high-heading">High</div>
-            <div id="current-high-temp">27</div>
-        </div>
-        <div id="current-rain-container">
-            <div id="current-rain-heading">Rain <span id="amount">mm</span></div>
-            <div id="current-rain">0</div>
-        </div>
-        <div id="current-sun-moon">
-            <div id="current-sunrise">
-                Sunrise
-                <span class="current-value">06:29:09</span>
-            </div>
-            <div id="current-sunset">
-                Sunset
-                <span class="current-value">17:52:02</span>
-            </div>
-            <div id="current-moonphase">
-                Moonphase
-                <span class="current-value">Waning Gibbous</span></div>
-        </div>
-    </div>
-    <div id="five-day-container" class="container-block half-block">
+        <div id="hourly-container" class="container-block full-block">
 
-    </div>
-    <div id="hourly-container" class="container-block full-block">
+        </div>
+        <div id="fifteen-day-container" class="container-block full-block">
 
+        </div>
+        <div id="footer-container">A Project by Warren Bosse</div>
     </div>
-    <div id="fifteen-day-container" class="container-block full-block">
-
-    </div>
-    <div id="footer-container">A Project by Warren Bosse</div>
 </body>
+
 </html>

@@ -3,21 +3,29 @@
     src: url(./upbolters.otf);
 }
 
-body {
-    color: #80AFD1;
-    margin: 0;
-    display: inline-grid;
-    gap: 15px;
-    width: calc(100vw - 78px);
-    padding: 34px 30px;
-    font-family: upbolters;
-    background: url(./WTHRMN-gradient.png) no-repeat #010E1C;
-    background-position: 16px -47px;
-    font-size: 1.3em;
+a {
+    text-decoration: none;
 }
 
-.current-value {
-    font-size: 1.5em;
+.active-btn {
+    background: #bbe5ff;
+    color: #010e1c;
+}
+
+#app-container {
+    display: inline-grid;
+    gap: 15px;
+    padding: 34px 30px;
+    width: 100%;
+}
+
+body {
+    color: #80AFD1;
+    margin: auto;
+    font-family: upbolters;
+    background: #010E1C;
+    font-size: 1.3em;
+    max-width: 1230px;
 }
 
 #head-container {
@@ -30,30 +38,18 @@ body {
 }
 
 #location-block, 
-#warnings {
+#warnings-container {
     display: inline-flex;
     align-items: center;
     gap: 15px;
 }
 
-#warnings {
+#warnings-container {
     justify-content: flex-end;
 }
 
-#current-low-temp, 
-#current-high-temp, 
-#current-wind-speed, 
-#current-rain {
-    font-size: 4rem;
-}
-
-span, 
-#current-low-temp, 
-#current-high-temp, 
-#current-conditions, 
-#current-wind-speed, 
-#current-rain, 
-.active {
+span, .active
+ {
     color: #BBE5FF;
 }
 
@@ -63,14 +59,89 @@ span,
     color: #324C5B;
 }
 
-a {
-    text-decoration: none;
+#direction {
+    font-size: 22px;
+}
+
+
+#five-day-container {
+    grid-area: five-day-container;
+}
+
+#hourly-container {
+    grid-area: hourly-container;
+}
+
+#fifteen-day-container {
+    grid-area: fifteen-day-container;
+}
+
+#footer-container {
+    grid-area: footer-container;
+    color: #324C5B;
+    text-align: end;
+}
+
+button {
+    border-radius: 17px;
+    padding: 6px;
+    background: none;
+    color: #507D93;
+    border: 2px solid #324C5B;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#change-location-btn {
+    padding: 6px 10px;
+}
+
+button:hover {
+    border: 2px solid #5a798b;
+}
+
+#degrees-celsius-btn, 
+#fahrenheit-btn {
+    width: 32px;
+}
+
+#time {
+    text-align: end;
+}
+
+.container-block {
+    background: #010E1C;
+    border: 2px solid #324454;
+    padding: 6%;
+    box-shadow: 6px 6px 7px #00000061;
+}
+
+/*-------------------------------Current block------------------------------------*/
+
+.current-value {
+    font-size: 1.5em;
 }
 
 #current-anchors {
     grid-area: current-anchors;
     display: inline-flex;
     gap: 25px;
+}
+
+#current-low-temp, 
+#current-high-temp, 
+#current-wind-speed, 
+#current-rain {
+    font-size: 4rem;
+}
+
+#current-low-temp, 
+#current-high-temp, 
+#current-conditions, 
+#current-wind-speed, 
+#current-rain {
+    color: #BBE5FF;
 }
 
 #current-conditions {
@@ -106,76 +177,19 @@ a {
     gap: 15px;
 }
 
-span#direction {
-    font-size: 22px;
-}
-
 #current-container {
+    display: inline-grid;
+    gap: 20px;
+    grid-template-columns: 100px 170px 1fr;
     grid-area: current-container;
 }
 
-#five-day-container {
-    grid-area: five-day-container;
-}
+/*-------------------------------Current block end------------------------------------*/
 
-#hourly-container {
-    grid-area: hourly-container;
-}
-
-#fifteen-day-container {
-    grid-area: fifteen-day-container;
-}
-
-#footer-container {
-    grid-area: footer-container;
-    color: #324C5B;
-    text-align: end;
-}
-
-button {
-    border-radius: 17px;
-    padding: 6px;
-    background: none;
-    color: #507D93;
-    border: 2px solid #324C5B;
-    text-align: center;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button#change-location-btn {
-    padding: 6px 10px;
-}
-
-button:hover {
-    border: 2px solid #5a798b;
-}
-
-#degrees-celsius-btn, 
-#fahrenheit-btn {
-    width: 32px;
-}
-
-#time {
-    text-align: end;
-}
-
-.container-block {
-    background: #010E1C;
-    border: 2px solid #324454;
-    padding: 6%;
-    box-shadow: 6px 6px 7px #00000061;
-}
-
-#current-container {
-    display: inline-grid;
-    gap: 25px;
-    grid-template-columns: 120px 190px 2fr;
-}
 
 /*------------------------------------Full Screen-----------------------------------*/
 
-body {
+#app-container {
     grid-template-areas: 
         "head-container head-container" 
         "current-container five-day-container" 
@@ -195,7 +209,7 @@ body {
 /*--------------------------------------Tablet--------------------------------------*/
 
 @media only screen and (max-width: 1030px) {
-    body {
+    #app-container {
         grid-template-areas: 
             "head-container" 
             "current-container"
