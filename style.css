@@ -238,4 +238,7 @@ button:hover {
             "current-sun-moon current-sun-moon";
         grid-template-columns: 1fr 1fr;
     }
+    #location-block {
+        flex-direction: column;
+    }
 }
