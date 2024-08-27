@@ -15,7 +15,6 @@ a {
 #app-container {
     display: inline-grid;
     gap: 15px;
-    padding: 34px 30px;
     width: 100%;
 }
 
@@ -26,6 +25,7 @@ body {
     background: #010E1C;
     font-size: 1.3em;
     max-width: 1230px;
+    padding: 30px 20px;
 }
 
 #head-container {
