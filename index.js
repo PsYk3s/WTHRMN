@@ -19,13 +19,15 @@ const tomorrowBtn = document.getElementById("tomorrowAnc")
 let tempType = "Celsius";
 let daySelect = 0;
 
-const apiLinkMetric = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/johannesburg?unitGroup=metric&key=P5VJ3EUHTKFRAKTQPLXYM42ZE&contentType=json'
-const apiLinkUS = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/johannesburg?unitGroup=us&key=P5VJ3EUHTKFRAKTQPLXYM42ZE&contentType=json'
-
+const apiLink = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/'
+const locationSearched = 'johannesburg'
+const key = 'P5VJ3EUHTKFRAKTQPLXYM42ZE'
 
 const fetchApi = () => {
+    
+    const currentLink = `${apiLink}${locationSearched}?unitGroup=${tempType == "Celsius" ? "metric" : "us"}&key=${key}&contentType=json`
 
-    fetch(tempType == "Celsius" ? apiLinkMetric : apiLinkUS)
+    fetch(currentLink)
 
     .then(function (response) {
         return response.json();
