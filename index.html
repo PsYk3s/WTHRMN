@@ -19,7 +19,9 @@
             <div id="location-block">
                 <span id="city-name">City Name</span>
                 <div id="buttons-block">
-                    <button type="button" id="change-location-btn">+ Change</button>
+                    <input type="text" id="search-bar" placeholder="Search" class="hideSearch" />
+                    <button type="button" id="Search" onclick="searchNewCity()" class="hideSearch"></button>
+                    <button type="button" id="change-location-btn" class="" onclick="showHideSearch()"></button>
                     <button type="button" onclick="selectCelsius()" id="degrees-celsius-btn" class="active-btn">°C</button>
                     <button type="button" onclick="selectFahren()" id="fahrenheit-btn" class="">F</button>
                 </div>
@@ -33,7 +35,7 @@
         <div id="current-container" class="container-block half-block">
             <div id="current-anchors"><a href="#" onclick="selectToday()" id="todayAnc" class="active">Today</a> <a href="#" onclick="selectTomorrow()" id="tomorrowAnc"
                     class="inactive">Tomorrow</a></div>
-            <div id="current-conditions" class="current-condition-overcast">Overcast</div>
+            <div id="current-conditions" class="">Overcast</div>
             <div id="current-low">
                 <div id="current-low-heading">Low</div>
                 <div id="current-low-temp">15</div>

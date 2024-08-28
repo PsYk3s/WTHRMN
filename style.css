@@ -93,17 +93,17 @@ button {
     cursor: pointer;
 }
 
-#change-location-btn {
-    padding: 6px 10px;
-}
+
 
 button:hover {
     border: 2px solid #5a798b;
 }
 
 #degrees-celsius-btn, 
-#fahrenheit-btn {
+#fahrenheit-btn, 
+.Search {
     width: 32px;
+    margin-left: 7px;
 }
 
 #time {
@@ -117,6 +117,98 @@ button:hover {
     box-shadow: 6px 6px 7px #00000061;
 }
 
+input[type="text"] {
+    background: #ffffff00;
+    color: #bbe5ff;
+    padding: 6px 11px;
+    border: 2px solid;
+    border-radius: 15px 0 0 15px;
+}
+
+#Search {
+    border-radius: 0;
+    border-color: #bbe5ff;
+    background: url(./icons/search.svg) no-repeat #bbe5ff;
+    height: 31px;
+    width: 31px;
+}
+
+#snow, #rain, #clear-day, #fog, #wind, #clear-night, #partly-cloudy-night, #partly-cloudy-day, #cloudy {
+    display: flex; 
+    gap:10px;
+}
+
+#clear-day::before {
+    content: url(./icons/sunny.svg);
+    width: 35px;
+}
+
+#snow::before {
+    content: url(./icons/snow.svg);
+    width: 35px;
+}
+
+#rain::before {
+    content: url(./icons/rainy.svg);
+    width: 35px;
+}
+
+
+#fog::before {
+    content: url(./icons/foggy.svg);
+    width: 35px;
+}
+
+#wind::before {
+    content: url(./icons/windy.svg);
+    width: 35px;
+}
+
+#clear-night::before {
+    content: url(./icons/clear-night.svg);
+    width: 35px;
+}
+
+#partly-cloudy-night::before {
+    content: url(./icons/cloudy-night.svg);
+    width: 35px;
+}
+
+#partly-cloudy-day::before {
+    content: url(./icons/cloudy-day.svg);
+    width: 35px;
+}
+
+#cloudy::before {
+    content: url(./icons/overcast.svg);
+    width: 35px;
+}
+
+.searching {
+    border-radius: 0 15px 15px 0;
+    color: #bbe5ff;
+    border-color: #bbe5ff;
+    background: url(./icons/close.svg) no-repeat #010e1c !important;
+    background-size: 20px;
+    background-position: center;
+}
+
+#change-location-btn {
+    background: url(./icons/plus.svg) no-repeat #010e1c;
+    height: 31px;
+    width: 31px;
+    background-size: 20px;
+    background-position: center;
+}
+
+#buttons-block {
+    display: flex;
+}
+
+.hideSearch {
+    display: none;
+}
+
 /*-------------------------------Current block------------------------------------*/
 
 .current-value {
@@ -126,7 +218,7 @@ button:hover {
 #current-anchors {
     grid-area: current-anchors;
     display: inline-flex;
-    gap: 25px;
+    gap: 45px;
 }
 
 #current-low-temp, 

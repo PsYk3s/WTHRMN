@@ -15,12 +15,15 @@ const degCelBtn = document.getElementById("degrees-celsius-btn")
 const farBtn = document.getElementById("fahrenheit-btn")
 const todayBtn = document.getElementById("todayAnc")
 const tomorrowBtn = document.getElementById("tomorrowAnc")
+const showHideBtn = document.getElementById("change-location-btn")
+const searchBar = document.getElementById("search-bar")
+const searchBtn = document.getElementById("Search")
 
 let tempType = "Celsius";
 let daySelect = 0;
+let locationSearched = 'johannesburg'
 
 const apiLink = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/'
-const locationSearched = 'johannesburg'
 const key = 'P5VJ3EUHTKFRAKTQPLXYM42ZE'
 
 const fetchApi = () => {
@@ -36,7 +39,7 @@ const fetchApi = () => {
     .then(function (response) {
         locationName.innerText = response.address;
         timeNow.innerText = response.currentConditions.datetime;
-        currentConditions.innerText = response.currentConditions.conditions;
+        currentConditions.innerHTML = `<span id="${response.days[daySelect].icon}">${response.days[daySelect].conditions}</span>`;
         currentLow.innerText = Math.round(response.days[daySelect].tempmin);
         currentHigh.innerText = Math.round(response.days[daySelect].tempmax);
         currentPrec.innerText = Math.round(response.days[daySelect].precip)
@@ -130,4 +133,21 @@ const selectTomorrow = () => {
         tomorrowBtn.classList.toggle("inactive")
         fetchApi()
     }   return
+}
+
+const searchNewCity = () => {
+    if (searchBar.value) {
+        locationSearched = searchBar.value;
+        searchBar.value = ""
+        showHideSearch()
+        fetchApi()
+    }
+}
+
+const showHideSearch = () => {
+    searchBar.classList.toggle("showSearch")
+    searchBar.classList.toggle("hideSearch")
+    searchBtn.classList.toggle("showSearch")
+    searchBtn.classList.toggle("hideSearch")
+    showHideBtn.classList.toggle("searching")
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 19.82 19.82">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #bbe5ff;
+      }
+    </style>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.6.0, SVG Export Plug-In . SVG Version: 1.2.0 Build 709)  -->
+  <g>
+    <g id="Layer_1">
+      <rect class="cls-1" x="3.41" y="8.75" width="13.01" height="2.33"/>
+      <rect class="cls-1" x="3.41" y="8.75" width="13.01" height="2.33" transform="translate(19.82) rotate(90)"/>
+    </g>
+  </g>
+</svg>
