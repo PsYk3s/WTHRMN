@@ -304,7 +304,11 @@ div#five-day-container {
     gap: 10px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     justify-items: center;
+    overflow-x: scroll;
+    scrollbar-width: none;
 }
+
+
 
 /*------------------------------------Full Screen-----------------------------------*/
 
@@ -357,7 +361,12 @@ div#five-day-container {
             "current-sun-moon current-sun-moon";
         grid-template-columns: 1fr 1fr;
     }
+
     #location-block {
         flex-direction: column;
+    }
+
+    #five-day-temps-container {
+        scrollbar-width: thin;
     }
 }
