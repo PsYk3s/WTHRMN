@@ -151,48 +151,48 @@ input[type="text"] {
     gap:10px;
 }
 
-#clear-day::before {
+#clear-day::before, .clear-day::before {
     content: url(./icons/sunny.svg);
     width: 35px;
 }
 
-#snow::before {
+#snow::before, .snow::before {
     content: url(./icons/snow.svg);
     width: 35px;
 }
 
-#rain::before {
+#rain::before, .rain::before {
     content: url(./icons/rainy.svg);
     width: 35px;
 }
 
 
-#fog::before {
+#fog::before, .fog::before {
     content: url(./icons/foggy.svg);
     width: 35px;
 }
 
-#wind::before {
+#wind::before, .wind::before {
     content: url(./icons/windy.svg);
     width: 35px;
 }
 
-#clear-night::before {
+#clear-night::before, .clear-night::before {
     content: url(./icons/clear-night.svg);
     width: 35px;
 }
 
-#partly-cloudy-night::before {
+#partly-cloudy-night::before, .partly-cloudy-night::before {
     content: url(./icons/cloudy-night.svg);
     width: 35px;
 }
 
-#partly-cloudy-day::before {
+#partly-cloudy-day::before, .partly-cloudy-day::before {
     content: url(./icons/cloudy-day.svg);
     width: 35px;
 }
 
-#cloudy::before {
+#cloudy::before, .cloudy::before {
     content: url(./icons/overcast.svg);
     width: 35px;
 }

@@ -18,6 +18,21 @@ const tomorrowBtn = document.getElementById("tomorrowAnc")
 const showHideBtn = document.getElementById("change-location-btn")
 const searchBar = document.getElementById("search-bar")
 const searchBtn = document.getElementById("Search")
+const dayOneLow = document.getElementById("day-one-low")
+const dayTwoLow = document.getElementById("day-two-low")
+const dayThreeLow = document.getElementById("day-three-low")
+const dayFourLow = document.getElementById("day-four-low")
+const dayFiveLow = document.getElementById("day-five-low")
+const dayOneHigh = document.getElementById("day-one-high")
+const dayTwoHigh = document.getElementById("day-two-high")
+const dayThreeHigh = document.getElementById("day-three-high")
+const dayFourHigh = document.getElementById("day-four-high")
+const dayFiveHigh = document.getElementById("day-five-high")
+const dayOneContainer = document.getElementById("day-one-container")
+const dayTwoContainer = document.getElementById("day-two-container")
+const dayThreeContainer = document.getElementById("day-three-container")
+const dayFourContainer = document.getElementById("day-four-container")
+const dayFiveContainer = document.getElementById("day-five-container")
 
 let tempType = "Celsius";
 let daySelect = 0;
@@ -37,8 +52,11 @@ const fetchApi = () => {
     })
 
     .then(function (response) {
+
         locationName.innerText = response.address;
         timeNow.innerText = response.currentConditions.datetime;
+
+        //Current weather conditions
         currentConditions.innerHTML = `<span id="${response.days[daySelect].icon}">${response.days[daySelect].conditions}</span>`;
         currentLow.innerText = Math.round(response.days[daySelect].tempmin);
         currentHigh.innerText = Math.round(response.days[daySelect].tempmax);
@@ -48,6 +66,23 @@ const fetchApi = () => {
         currentMoonphase.innerText = moonPhaseCheck(response.days[daySelect].moonphase)
         currentWind.innerHTML = `${Math.round(response.days[daySelect].windspeed)}<span id="direction">${windDirectionCheck(response.days[daySelect].winddir)}</span>`
         warnings.innerText = response.alerts.length > 0 ? response.alerts : "None";
+
+        //Five day forecast
+        dayOneLow.innerText = Math.round(response.days[0].tempmin);
+        dayTwoLow.innerText = Math.round(response.days[1].tempmin);
+        dayThreeLow.innerText = Math.round(response.days[2].tempmin);
+        dayFourLow.innerText = Math.round(response.days[3].tempmin);
+        dayFiveLow.innerText = Math.round(response.days[4].tempmin);
+        dayOneHigh.innerText = Math.round(response.days[0].tempmax);
+        dayTwoHigh.innerText = Math.round(response.days[1].tempmax);
+        dayThreeHigh.innerText = Math.round(response.days[2].tempmax);
+        dayFourHigh.innerText = Math.round(response.days[3].tempmax);
+        dayFiveHigh.innerText = Math.round(response.days[4].tempmax);
+        dayOneContainer.classList.add(`${response.days[0].icon}`);
+        dayTwoContainer.classList.add(`${response.days[1].icon}`);
+        dayThreeContainer.classList.add(`${response.days[2].icon}`);
+        dayFourContainer.classList.add(`${response.days[3].icon}`);
+        dayFiveContainer.classList.add(`${response.days[4].icon}`);
     })
 
     speed.innerText = tempType == "Celsius" ? "KMH" : "MPH";
