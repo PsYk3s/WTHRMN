@@ -48,7 +48,7 @@ body {
     justify-content: flex-end;
 }
 
-span, .active
+span, .active, #five-day-heading, .large-temp
  {
     color: #BBE5FF;
 }
@@ -63,6 +63,11 @@ span, .active
     font-size: 22px;
 }
 
+hr {
+    margin: 0px auto 3px;
+    width: 80%;
+    border: 1px solid #bbe5ff;
+}
 
 #five-day-container {
     grid-area: five-day-container;
@@ -133,7 +138,15 @@ input[type="text"] {
     width: 31px;
 }
 
-#snow, #rain, #clear-day, #fog, #wind, #clear-night, #partly-cloudy-night, #partly-cloudy-day, #cloudy {
+#snow, 
+#rain, 
+#clear-day, 
+#fog, 
+#wind, 
+#clear-night, 
+#partly-cloudy-night, 
+#partly-cloudy-day, 
+#cloudy {
     display: flex; 
     gap:10px;
 }
@@ -224,7 +237,8 @@ input[type="text"] {
 #current-low-temp, 
 #current-high-temp, 
 #current-wind-speed, 
-#current-rain {
+#current-rain,
+.large-temp {
     font-size: 4rem;
 }
 
@@ -272,12 +286,25 @@ input[type="text"] {
 #current-container {
     display: inline-grid;
     gap: 20px;
-    grid-template-columns: 100px 170px 1fr;
+    grid-template-columns: 100px 135px 1fr;
     grid-area: current-container;
 }
 
-/*-------------------------------Current block end------------------------------------*/
 
+/*-----------------------------------5 day block-------------------------------------*/
+
+div#five-day-container {
+    display: inline-grid;
+    gap: 20px;
+    grid-template-rows: 25px 1fr;
+}
+
+#five-day-temps-container {
+    display: inline-grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-items: center;
+}
 
 /*------------------------------------Full Screen-----------------------------------*/
 
