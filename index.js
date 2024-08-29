@@ -192,4 +192,6 @@ const showHideSearch = () => {
     searchBtn.classList.toggle("showSearch")
     searchBtn.classList.toggle("hideSearch")
     showHideBtn.classList.toggle("searching")
+    degCelBtn.classList.toggle("hideSearch")
+    farBtn.classList.toggle("hideSearch")
 }

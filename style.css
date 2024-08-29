@@ -397,4 +397,8 @@ input[type="text"] {
     #five-day-temps-container {
         scrollbar-width: thin;
     }
+
+    #hourly-container {
+        padding: 6%;
+    }
 }
