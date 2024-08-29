@@ -306,6 +306,25 @@ div#five-day-container {
     justify-items: center;
     overflow-x: scroll;
     scrollbar-width: none;
+    scrollbar-color: #bbe5ff #010e1c;
+}
+
+/*--------------------------------Hourly block-------------------------------------*/
+
+#hourly-container {
+    display: inline-flex;
+    gap: 10px;
+    align-items: flex-end;
+    padding: 3%;
+    overflow-x: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #bbe5ff #010e1c;
+}
+
+.hourly-temp {
+    font-size: 2em;
+    text-align: center;
+    color: #bbe5ff;
 }
 
 

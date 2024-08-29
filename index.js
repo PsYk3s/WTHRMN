@@ -33,6 +33,7 @@ const dayTwoContainer = document.getElementById("day-two-container")
 const dayThreeContainer = document.getElementById("day-three-container")
 const dayFourContainer = document.getElementById("day-four-container")
 const dayFiveContainer = document.getElementById("day-five-container")
+const hourlyContainer = document.getElementById("hourly-container")
 
 let tempType = "Celsius";
 let daySelect = 0;
@@ -54,7 +55,7 @@ const fetchApi = () => {
     .then(function (response) {
 
         locationName.innerText = response.address;
-        timeNow.innerText = response.currentConditions.datetime;
+        timeNow.innerText = response.currentConditions.datetime.slice(0, 5);
 
         //Current weather conditions
         currentConditions.innerHTML = `<span id="${response.days[daySelect].icon}">${response.days[daySelect].conditions}</span>`;
@@ -83,6 +84,12 @@ const fetchApi = () => {
         dayThreeContainer.classList.add(`${response.days[2].icon}`);
         dayFourContainer.classList.add(`${response.days[3].icon}`);
         dayFiveContainer.classList.add(`${response.days[4].icon}`);
+
+        //Hourly
+        hourlyContainer.innerHTML = ""
+        for (let i = 0; i < 24; i++) {
+            hourlyContainer.innerHTML += `<div class="hours ${response.days[0].hours[i].icon}"><div class="hourly-temp">${Math.round(response.days[0].hours[i].temp)}</div><div class="hour">${response.days[0].hours[i].datetime.slice(0, 5)}</div></div>`
+        }
     })
 
     speed.innerText = tempType == "Celsius" ? "KMH" : "MPH";
