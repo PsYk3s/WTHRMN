@@ -33,7 +33,7 @@ const dayTwoContainer = document.getElementById("day-two-container")
 const dayThreeContainer = document.getElementById("day-three-container")
 const dayFourContainer = document.getElementById("day-four-container")
 const dayFiveContainer = document.getElementById("day-five-container")
-const hourlyContainer = document.getElementById("hourly-container")
+const hoursContainer = document.getElementById("hours-container")
 
 let tempType = "Celsius";
 let daySelect = 0;
@@ -86,9 +86,9 @@ const fetchApi = () => {
         dayFiveContainer.classList.add(`${response.days[4].icon}`);
 
         //Hourly
-        hourlyContainer.innerHTML = ""
+        hoursContainer.innerHTML = ""
         for (let i = 0; i < 24; i++) {
-            hourlyContainer.innerHTML += `<div class="hours ${response.days[0].hours[i].icon}"><div class="hourly-temp">${Math.round(response.days[0].hours[i].temp)}</div><div class="hour">${response.days[0].hours[i].datetime.slice(0, 5)}</div></div>`
+            hoursContainer.innerHTML += `<div class="hours ${response.days[0].hours[i].icon}"><div class="hourly-temp">${Math.round(response.days[0].hours[i].temp)}</div><div class="hour">${response.days[0].hours[i].datetime.slice(0, 5)}</div></div>`
         }
     })
 

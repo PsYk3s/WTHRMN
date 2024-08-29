@@ -293,7 +293,7 @@ input[type="text"] {
 
 /*-----------------------------------5 day block-------------------------------------*/
 
-div#five-day-container {
+#five-day-container {
     display: inline-grid;
     gap: 20px;
     grid-template-rows: 25px 1fr;
@@ -303,19 +303,28 @@ div#five-day-container {
     display: inline-grid;
     gap: 10px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    justify-items: center;
     overflow-x: scroll;
     scrollbar-width: none;
     scrollbar-color: #bbe5ff #010e1c;
+    align-items: end;
+    justify-items: center;
 }
-
 /*--------------------------------Hourly block-------------------------------------*/
 
 #hourly-container {
+    padding: 3%;
+    display: inline-grid;
+    gap: 20px;
+}
+
+.hour {
+    margin: 10px 0;
+}
+
+#hours-container {
     display: inline-flex;
     gap: 10px;
     align-items: flex-end;
-    padding: 3%;
     overflow-x: scroll;
     scrollbar-width: thin;
     scrollbar-color: #bbe5ff #010e1c;
