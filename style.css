@@ -31,7 +31,7 @@ body {
 #head-container {
     grid-area: head-container;
     display: inline-grid;
-    grid-template-columns: 300px 2fr 1fr;
+    grid-template-columns: 300px 2fr 2fr;
     gap: 15px;
     align-items: center;
     font-size: 20px;

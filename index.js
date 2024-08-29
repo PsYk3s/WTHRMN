@@ -66,7 +66,7 @@ const fetchApi = () => {
         currentSunset.innerText = response.days[daySelect].sunset;
         currentMoonphase.innerText = moonPhaseCheck(response.days[daySelect].moonphase)
         currentWind.innerHTML = `${Math.round(response.days[daySelect].windspeed)}<span id="direction">${windDirectionCheck(response.days[daySelect].winddir)}</span>`
-        warnings.innerText = response.alerts.length > 0 ? response.alerts : "None";
+        warnings.innerText = response.alerts.length > 0 ? response.alerts[0].event : "None";
 
         //Five day forecast
         dayOneLow.innerText = Math.round(response.days[0].tempmin);
