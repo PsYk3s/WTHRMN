@@ -34,6 +34,7 @@ const dayThreeContainer = document.getElementById("day-three-container")
 const dayFourContainer = document.getElementById("day-four-container")
 const dayFiveContainer = document.getElementById("day-five-container")
 const hoursContainer = document.getElementById("hours-container")
+const fifteenDayContainer = document.getElementById("days-container")
 
 let tempType = "Celsius";
 let daySelect = 0;
@@ -89,6 +90,12 @@ const fetchApi = () => {
         hoursContainer.innerHTML = ""
         for (let i = 0; i < 24; i++) {
             hoursContainer.innerHTML += `<div class="hours ${response.days[0].hours[i].icon}"><div class="hourly-temp">${Math.round(response.days[0].hours[i].temp)}</div><div class="hour">${response.days[0].hours[i].datetime.slice(0, 5)}</div></div>`
+        }
+
+        //Fifteen day forecast
+        fifteenDayContainer.innerHTML = ""
+        for (let i = 0; i < 15; i++) { 
+            fifteenDayContainer.innerHTML += `<div class="fifteen-day ${response.days[i].icon}"><div class="daily-temp">${Math.round(response.days[i].temp)}</div><div class="day">${response.days[i].datetime.slice(5)}</div></div>`
         }
     })
 

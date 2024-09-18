@@ -336,6 +336,42 @@ input[type="text"] {
     color: #bbe5ff;
 }
 
+/*----------------------------------Fifteen day block---------------------------------*/
+
+#fifteen-day-container {
+    padding: 3%;
+    display: inline-grid;
+    gap: 20px;
+}
+
+#days-container {
+    display: inline-flex;
+    gap: 25px;
+    align-items: flex-end;
+    overflow-x: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #bbe5ff #010e1c;
+}
+
+.daily-temp {
+    font-size: 3em;
+    text-align: center;
+    color: #bbe5ff;
+}
+
+#days-container {
+    display: inline-flex;
+    gap: 15px;
+    align-items: flex-end;
+    overflow-x: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #bbe5ff #010e1c;
+}
+
+.day {
+    width: 60px;
+    margin: auto;
+}
 
 
 /*------------------------------------Full Screen-----------------------------------*/
