@@ -299,6 +299,10 @@ input[type="text"] {
     grid-template-rows: 25px 1fr;
 }
 
+.five-day {
+    text-align: center;
+}
+
 #five-day-temps-container {
     display: inline-grid;
     gap: 10px;
@@ -370,7 +374,7 @@ input[type="text"] {
 
 .day {
     width: 60px;
-    margin: auto;
+    margin: 10px auto;
 }
 
 
