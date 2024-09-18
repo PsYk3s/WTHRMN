@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 const locationName = document.getElementById("city-name")
 const timeNow = document.getElementById("time")
 const warnings = document.getElementById("warnings")
@@ -28,6 +30,16 @@ const dayTwoHigh = document.getElementById("day-two-high")
 const dayThreeHigh = document.getElementById("day-three-high")
 const dayFourHigh = document.getElementById("day-four-high")
 const dayFiveHigh = document.getElementById("day-five-high")
+const dayOneDay = document.getElementById("day-one-day")
+const dayTwoDay = document.getElementById("day-two-day")
+const dayThreeDay = document.getElementById("day-three-day")
+const dayFourDay = document.getElementById("day-four-day")
+const dayFiveDay = document.getElementById("day-five-day")
+const dayOneDate = document.getElementById("day-one-date")
+const dayTwoDate = document.getElementById("day-two-date")
+const dayThreeDate = document.getElementById("day-three-date")
+const dayFourDate = document.getElementById("day-four-date")
+const dayFiveDate = document.getElementById("day-five-date")
 const dayOneContainer = document.getElementById("day-one-container")
 const dayTwoContainer = document.getElementById("day-two-container")
 const dayThreeContainer = document.getElementById("day-three-container")
@@ -80,6 +92,9 @@ const fetchApi = () => {
         dayThreeHigh.innerText = Math.round(response.days[2].tempmax);
         dayFourHigh.innerText = Math.round(response.days[3].tempmax);
         dayFiveHigh.innerText = Math.round(response.days[4].tempmax);
+
+        dayOneDay.innerText = format(new Date(response.days[0].datetime), 'MMM')
+
         dayOneContainer.classList.add(`${response.days[0].icon}`);
         dayTwoContainer.classList.add(`${response.days[1].icon}`);
         dayThreeContainer.classList.add(`${response.days[2].icon}`);
