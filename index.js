@@ -46,6 +46,9 @@ const dayFiveContainer = document.getElementById("day-five-container")
 const hoursContainer = document.getElementById("hours-container")
 const fifteenDayContainer = document.getElementById("days-container")
 
+const weekday = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
 let tempType = "Celsius";
 let daySelect = 0;
 let locationSearched = 'johannesburg'
@@ -91,7 +94,17 @@ const fetchApi = () => {
         dayFourHigh.innerText = Math.round(response.days[3].tempmax);
         dayFiveHigh.innerText = Math.round(response.days[4].tempmax);
 
-        dayOneDay.innerText = response.days[0].datetime.toLocaleDateString(locale, { weekday: 'long' })
+        dayOneDay.innerText = weekday[new Date(response.days[0].datetime).getDay()]
+        dayTwoDay.innerText = weekday[new Date(response.days[1].datetime).getDay()]
+        dayThreeDay.innerText = weekday[new Date(response.days[2].datetime).getDay()]
+        dayFourDay.innerText = weekday[new Date(response.days[3].datetime).getDay()]
+        dayFiveDay.innerText = weekday[new Date(response.days[4].datetime).getDay()]
+
+        dayOneDate.innerText = `${month[new Date(response.days[0].datetime).getMonth()]} ${new Date(response.days[0].datetime).getDate()}`
+        dayTwoDate.innerText = `${month[new Date(response.days[1].datetime).getMonth()]} ${new Date(response.days[1].datetime).getDate()}`
+        dayThreeDate.innerText = `${month[new Date(response.days[2].datetime).getMonth()]} ${new Date(response.days[2].datetime).getDate()}`
+        dayFourDate.innerText = `${month[new Date(response.days[3].datetime).getMonth()]} ${new Date(response.days[3].datetime).getDate()}`
+        dayFiveDate.innerText = `${month[new Date(response.days[4].datetime).getMonth()]} ${new Date(response.days[4].datetime).getDate()}`
 
         dayOneContainer.classList.add(`${response.days[0].icon}`);
         dayTwoContainer.classList.add(`${response.days[1].icon}`);
