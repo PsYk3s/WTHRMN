@@ -303,6 +303,7 @@ input[type="text"] {
 
 .five-day {
     text-align: center;
+    min-width: 76px;
 }
 
 #five-day-temps-container {
