@@ -1,5 +1,3 @@
-import { format } from "date-fns";
-
 const locationName = document.getElementById("city-name")
 const timeNow = document.getElementById("time")
 const warnings = document.getElementById("warnings")
@@ -66,7 +64,6 @@ const fetchApi = () => {
     })
 
     .then(function (response) {
-
         locationName.innerText = response.address;
         timeNow.innerText = response.currentConditions.datetime.slice(0, 5);
 
@@ -87,13 +84,14 @@ const fetchApi = () => {
         dayThreeLow.innerText = Math.round(response.days[2].tempmin);
         dayFourLow.innerText = Math.round(response.days[3].tempmin);
         dayFiveLow.innerText = Math.round(response.days[4].tempmin);
+        
         dayOneHigh.innerText = Math.round(response.days[0].tempmax);
         dayTwoHigh.innerText = Math.round(response.days[1].tempmax);
         dayThreeHigh.innerText = Math.round(response.days[2].tempmax);
         dayFourHigh.innerText = Math.round(response.days[3].tempmax);
         dayFiveHigh.innerText = Math.round(response.days[4].tempmax);
 
-        dayOneDay.innerText = format(new Date(response.days[0].datetime), 'MMM')
+        dayOneDay.innerText = response.days[0].datetime.toLocaleDateString(locale, { weekday: 'long' })
 
         dayOneContainer.classList.add(`${response.days[0].icon}`);
         dayTwoContainer.classList.add(`${response.days[1].icon}`);
@@ -104,13 +102,21 @@ const fetchApi = () => {
         //Hourly
         hoursContainer.innerHTML = ""
         for (let i = 0; i < 24; i++) {
-            hoursContainer.innerHTML += `<div class="hours ${response.days[0].hours[i].icon}"><div class="hourly-temp">${Math.round(response.days[0].hours[i].temp)}</div><div class="hour">${response.days[0].hours[i].datetime.slice(0, 5)}</div></div>`
+            hoursContainer.innerHTML += 
+            `<div class="hours ${response.days[0].hours[i].icon}">
+                <div class="hourly-temp">${Math.round(response.days[0].hours[i].temp)}</div>
+                <div class="hour">${response.days[0].hours[i].datetime.slice(0, 5)}</div>
+            </div>`
         }
 
         //Fifteen day forecast
         fifteenDayContainer.innerHTML = ""
         for (let i = 0; i < 15; i++) { 
-            fifteenDayContainer.innerHTML += `<div class="fifteen-day ${response.days[i].icon}"><div class="daily-temp">${Math.round(response.days[i].temp)}</div><div class="day">${response.days[i].datetime.slice(5)}</div></div>`
+            fifteenDayContainer.innerHTML += 
+            `<div class="fifteen-day ${response.days[i].icon}">
+                <div class="daily-temp">${Math.round(response.days[i].temp)}</div>
+                <div class="day">${response.days[i].datetime.slice(5)}</div>
+            </div>`
         }
     })
 
@@ -124,14 +130,14 @@ fetchApi()
 const moonPhaseCheck = moonphase => {
     let phase = ""
     phase =
-    moonphase == 0 ? "New Moon" :
-    moonphase > 0 && moonphase < 0.25 ? "Waxing Crescent" :
-    moonphase == 0.25 ? "First Quarter" :
-    moonphase > 0.25 && moonphase < 0.5 ? "Waxing Crescent" :
-    moonphase == 0.5 ? "Full Moon" :
-    moonphase > 0.5 && moonphase < 0.75 ? "Waning Gibbous" :
-    moonphase == 0.75 ? "Last Quarter" :
-    "Waning Crescent";
+        moonphase == 0 ? "New Moon" :
+        moonphase > 0 && moonphase < 0.25 ? "Waxing Crescent" :
+        moonphase == 0.25 ? "First Quarter" :
+        moonphase > 0.25 && moonphase < 0.5 ? "Waxing Crescent" :
+        moonphase == 0.5 ? "Full Moon" :
+        moonphase > 0.5 && moonphase < 0.75 ? "Waning Gibbous" :
+        moonphase == 0.75 ? "Last Quarter" :
+        "Waning Crescent";
     return phase
 }
 
@@ -165,7 +171,6 @@ const selectCelsius = () => {
         farBtn.classList.toggle("active-btn")
         fetchApi()
     }   return
-    
 }
 
 const selectFahren = () => {
